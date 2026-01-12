@@ -1,0 +1,12 @@
+import { DateTime } from "luxon";
+import { env } from "./env.js";
+export const APP_TZ = env.APP_TIMEZONE;
+export function nowTz() {
+    return DateTime.now().setZone(APP_TZ);
+}
+export function startOfDayISO(date) {
+    return date.setZone(APP_TZ).startOf("day").toISO();
+}
+export function startOfDayDate(date) {
+    return date.setZone(APP_TZ).startOf("day").toJSDate();
+}

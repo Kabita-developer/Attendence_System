@@ -1,0 +1,24 @@
+{
+  "name": "attendance-salary-system",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run build -w @app/api && npm run dev -w @app/web",
+    "dev:watch": "concurrently -n api,web -c blue,green \"npm run dev -w @app/api\" \"npm run build:watch -w @app/api && npm run dev -w @app/web\"",
+    "dev:api": "npm run dev -w @app/api",
+    "dev:web": "npm run dev -w @app/web",
+    "build": "npm run build -w @app/api && npm run build -w @app/web",
+    "build:watch": "npm run build -w @app/api -- --watch",
+    "start": "npm run start -w @app/web",
+    "lint": "npm run lint -w @app/web",
+    "seed": "npm run seed -w @app/api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
+
+
